@@ -5,18 +5,18 @@ import { Col, Row } from "react-bootstrap";
 
 const NewsCard = (props) => {
   return (
-    <Card className="p-1" style={{ width: "20rem" }}>
+    <Card className="p-1 m-3">
       <Card.Body>
         <CardHeader>
           <Row>
             <Col>
               <small className="d-flex justify-content-start font-italic">
-                #{props.tag}
+                Lajkovi: {props.brojLajkova}
               </small>
             </Col>
             <Col>
               <small className="d-flex justify-content-end font-italic">
-                {props.datum}
+                Dislajkovi: {props.brojDislajkova}
               </small>
             </Col>
           </Row>
@@ -26,12 +26,12 @@ const NewsCard = (props) => {
           <Row>
             <Col>
               <small className="d-flex justify-content-start font-italic">
-                Likes: {props.brojLajkova}
+                #{props.tag}
               </small>
             </Col>
             <Col>
               <small className="d-flex justify-content-end font-italic">
-                Dislikes: {props.brojDislajkova}
+                {props.datum}
               </small>
             </Col>
           </Row>

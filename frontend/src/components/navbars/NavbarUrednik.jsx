@@ -16,9 +16,16 @@ const NavbarUrednik = () => {
   };
   return (
     <div>
-      <Navbar fixed="top" expand="lg" variant="dark" className="bg-dark shadow">
+      <Navbar
+        fixed="top"
+        expand="lg"
+        variant="light"
+        className="bg-secondary shadow"
+      >
         <Container fluid>
-          <Navbar.Brand href="#">News</Navbar.Brand>
+          <Navbar.Brand style={{ color: "yellow" }} href="#">
+            Vesti
+          </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
@@ -34,16 +41,17 @@ const NavbarUrednik = () => {
                   id="dropdown-basic-button"
                   title={userData.username}
                   drop="start"
+                  variant="warning"
                 >
                   <Dropdown.Item as={Link} to={`/Urednik/${userData.userId}`}>
-                    Home
+                    Pocetna stranica
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout}>Odjava</Dropdown.Item>
                 </DropdownButton>
               ) : (
                 <Nav.Link as={Link} to="/Login">
-                  Log in
+                  Prijava
                 </Nav.Link>
               )}
             </Form>

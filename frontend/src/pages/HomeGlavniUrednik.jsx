@@ -1,6 +1,6 @@
 import NewsCard from "../components/NewsCard";
 import NavbarGlavniUrednik from "../components/navbars/NavbarGlavniUrednik";
-import { Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -16,16 +16,28 @@ const HomeGlavniUrednik = () => {
   }, []);
 
   return (
-    <div>
-      <NavbarGlavniUrednik />
-      <Row className="g-4 mt-5">
-        {allNews.map((vest) => (
-          <Col key={vest.id} xs={12} md={6} lg={4}>
-            <NewsCard {...vest} />
-          </Col>
-        ))}
-      </Row>
-    </div>
+    <>
+      {allNews.length != 0 ? (
+        <>
+          <NavbarGlavniUrednik />
+          <Container
+            fluid="lg"
+            className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+            style={{ width: "70rem" }}
+          >
+            {allNews.map((vest) => (
+              <div key={vest.id}>
+                <NewsCard {...vest} />
+              </div>
+            ))}
+          </Container>
+        </>
+      ) : (
+        <>
+          <p>Trenutno nema vesti za prikaz!</p>
+        </>
+      )}
+    </>
   );
 };
 

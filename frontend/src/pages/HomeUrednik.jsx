@@ -1,6 +1,6 @@
 import NewsCard from "../components/NewsCard";
-import NavBarNovinar from "../components/navbars/NavbarUrednik";
-import { Row, Col } from "react-bootstrap";
+import NavbarUrednik from "../components/navbars/NavbarUrednik";
+import { Container } from "react-bootstrap";
 import axios from "axios";
 import { useUser } from "../components/UserHooks";
 import { useState } from "react";
@@ -26,20 +26,24 @@ const HomeUrednik = () => {
     <div>
       {news.length != 0 ? (
         <>
-          <NavBarNovinar />
-          <Row className="g-4 mt-5">
+          <NavbarUrednik />
+          <Container
+            fluid="lg"
+            className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+            style={{ width: "70rem" }}
+          >
             {news.map((vest) => (
-              <Col key={vest.id} xs={12} md={6} lg={4}>
+              <div key={vest.id}>
                 <Link to={`/${userData.userId}/NewsUrednik/${vest.id}`}>
                   <NewsCard {...vest} />
                 </Link>
-              </Col>
+              </div>
             ))}
-          </Row>
+          </Container>
         </>
       ) : (
         <>
-          <NavBarNovinar />
+          <NavbarUrednik />
           <p>No new news to approve</p>
         </>
       )}

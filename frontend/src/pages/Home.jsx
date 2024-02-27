@@ -1,5 +1,4 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { Container } from "react-bootstrap";
 import NewsCard from "../components/NewsCard";
 import NavbarHome from "../components/navbars/NavbarHome";
 import { Link } from "react-router-dom";
@@ -21,18 +20,30 @@ const Home = () => {
 
   return (
     <div>
-      <NavbarHome />
-
-      <Row className="g-4 mt-5">
-        {Array.isArray(news) &&
-          news.map((vest) => (
-            <Col key={vest.id} xs={12} md={6} lg={4}>
-              <Link to={`/News/${vest.id}`}>
-                <NewsCard {...vest} />
-              </Link>
-            </Col>
-          ))}
-      </Row>
+      {news.length != 0 ? (
+        <>
+          <NavbarHome />
+          <Container
+            fluid="lg"
+            className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+            style={{ width: "70rem" }}
+          >
+            {Array.isArray(news) &&
+              news.map((vest) => (
+                <div key={vest.id}>
+                  <Link to={`/News/${vest.id}`}>
+                    <NewsCard {...vest} />
+                  </Link>
+                </div>
+              ))}
+          </Container>
+        </>
+      ) : (
+        <>
+          <NavbarHome />
+          <p>Nema novih vesti</p>
+        </>
+      )}
     </div>
   );
 };

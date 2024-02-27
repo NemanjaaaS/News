@@ -32,12 +32,16 @@ const NewsPage = () => {
     <div>
       <NavbarHome className="mb-4" />
       {news ? (
-        <>
+        <Container
+          fluid="lg"
+          className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+          style={{ width: "70rem" }}
+        >
           <ReadNewsCard {...news} />
           <Container className="shadow-lg rounded p-3">
             <Comments {...news} />
           </Container>
-        </>
+        </Container>
       ) : (
         <p>Loading...</p>
       )}

@@ -6,7 +6,7 @@ import { Row, Col } from "react-bootstrap";
 const NovinarReadNewsCard = (props) => {
   return (
     <div>
-      <Card className="mx-auto mt-5" style={{ width: "1200px" }}>
+      <Card className="mx-auto mt-5">
         <Row className="shadow rounded p-2">
           <Col className="d-flex justify-content-start ">{props.tag}</Col>
           <Col className="d-flex justify-content-end ">{props.rubrika}</Col>

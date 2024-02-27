@@ -27,14 +27,16 @@ function UserCard(props) {
   };
 
   return (
-    <Container fluid>
+    <Container>
       <Row className="justify-content-center">
         <Card className="m-3 p-1">
-          <Card.Header>{isNovinar ? "Novinar" : "Urednik"}</Card.Header>
+          <Card.Header>
+            <h3>{isNovinar ? "Novinar" : "Urednik"}</h3>
+          </Card.Header>
           <Card.Body>
             <Card.Title>{props.username}</Card.Title>
-            <Button variant="primary" onClick={handleClick}>
-              {isNovinar ? "Set as Urednik" : "Set as Novinar"}
+            <Button variant="warning" onClick={handleClick}>
+              {isNovinar ? "Postavi za urednika" : "Postavi za novinara"}
             </Button>
           </Card.Body>
         </Card>

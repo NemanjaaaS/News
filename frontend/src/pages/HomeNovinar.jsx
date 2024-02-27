@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import NewsCard from "../components/NewsCard";
-import NavbarNovinar from "../components/navbars/NavBarNovinar";
-import { Row, Col } from "react-bootstrap";
+import NavbarNovinar from "../components/navbars/NavbarNovinar";
+import { Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useUser } from "../components/UserHooks";
@@ -23,16 +23,29 @@ const HomeNovinar = () => {
   console.log(news);
   return (
     <div>
-      <NavbarNovinar />
-      <Row className="g-4 mt-5">
-        {news.map((vest) => (
-          <Col key={vest.id} xs={12} md={6} lg={4}>
-            <Link to={`/${userData.userId}/NewsNovinar/${vest.id}`}>
-              <NewsCard {...vest} />
-            </Link>
-          </Col>
-        ))}
-      </Row>
+      {news.length != 0 ? (
+        <>
+          <NavbarNovinar />
+          <Container
+            fluid="lg"
+            className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+            style={{ width: "70rem" }}
+          >
+            {news.map((vest) => (
+              <div key={vest.id}>
+                <Link to={`/${userData.userId}/NewsNovinar/${vest.id}`}>
+                  <NewsCard {...vest} />
+                </Link>
+              </div>
+            ))}
+          </Container>
+        </>
+      ) : (
+        <>
+          <NavbarNovinar />
+          <p>Trenutno nemate aktivnih vesti!</p>
+        </>
+      )}
     </div>
   );
 };

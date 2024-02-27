@@ -6,7 +6,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Dropdown from "react-bootstrap/Dropdown";
 import FormCheck from "react-bootstrap/FormCheck";
-import NavbarNovinar from "../components/navbars/NavBarNovinar";
+import NavbarNovinar from "../components/navbars/NavbarNovinar";
 import axios from "axios";
 
 const CreateNewsPage = () => {

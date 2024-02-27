@@ -55,10 +55,15 @@ const NavbarArchiveSearch = ({ news, setFilteredNews }) => {
   };
 
   return (
-    <Navbar fixed="top" expand="lg" variant="dark" className="bg-dark shadow">
+    <Navbar
+      fixed="top"
+      expand="lg"
+      variant="light"
+      className="bg-secondary shadow"
+    >
       <Container fluid>
-        <Navbar.Brand as={Link} to={"/"} href="#">
-          News
+        <Navbar.Brand style={{ color: "yellow" }} as={Link} to={"/"} href="#">
+          Vesti
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -74,13 +79,13 @@ const NavbarArchiveSearch = ({ news, setFilteredNews }) => {
             variant="outline-success"
             onClick={handleAllButtonClick}
           >
-            All
+            Sve vesti
           </Button>
 
           <Form className="d-flex" onSubmit={handleSearchSubmit}>
             <Form.Control
               type="text"
-              placeholder="Search"
+              placeholder="Pretraga"
               className="mr-2"
               value={searchQuery}
               onChange={handleSearchChange}
@@ -91,21 +96,21 @@ const NavbarArchiveSearch = ({ news, setFilteredNews }) => {
               dateFormat="yyyy-MM-dd"
               selected={selectedDate}
               onChange={(date) => handleDateFilterChange(date)}
-              placeholderText="Select date"
+              placeholderText="Izaberite datum"
             />
 
-            <Button className="p-2" variant="outline-success" type="submit">
-              Search
+            <Button className="p-2" variant="warning" type="submit">
+              Pretrazi
             </Button>
           </Form>
 
           <Link
             to={`/Login`}
-            className="btn btn-outline-success p-2 mx-2
+            className="btn btn-warning p-2 mx-2
           
           "
           >
-            Log in
+            Prijava
           </Link>
         </Navbar.Collapse>
       </Container>

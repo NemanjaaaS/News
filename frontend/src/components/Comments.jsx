@@ -96,11 +96,13 @@ const Comments = (props) => {
   return (
     <div>
       <Form>
-        <h5 className="mt-5 mb-4">Comments section</h5>
+        <h4 className="mt-5 mb-5" style={{ color: "white" }}>
+          Komentari
+        </h4>
         <Form.Group className="mb-2" controlId="formUsername">
           <Form.Control
             type="text"
-            placeholder="Your Username"
+            placeholder="Korisnicko ime"
             value={newComment.username}
             onChange={(e) =>
               setNewComment({ ...newComment, username: e.target.value })
@@ -111,15 +113,15 @@ const Comments = (props) => {
           <Form.Control
             as="textarea"
             rows={3}
-            placeholder="Your Comment"
+            placeholder="Vas komentar..."
             value={newComment.comment}
             onChange={(e) =>
               setNewComment({ ...newComment, comment: e.target.value })
             }
           />
         </Form.Group>
-        <Button variant="primary" onClick={handlePostComment}>
-          Post Comment
+        <Button variant="warning" onClick={handlePostComment}>
+          Postavi komentar
         </Button>
       </Form>
       <PreviousComments

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NavbarArchiveSearch from "../components/navbars/NavbarArchiveSearch";
-import { Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import NewsCard from "../components/NewsCard";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -48,15 +48,19 @@ const Archive = () => {
         news={allNews}
         setFilteredNews={handleFilterChange}
       />
-      <Row className="g-4 mt-5">
+      <Container
+        fluid="lg"
+        className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+        style={{ width: "70rem" }}
+      >
         {filteredNews.map((vest) => (
-          <Col key={vest.id} xs={12} md={6} lg={4}>
+          <div key={vest.id}>
             <Link to={`/News/${vest.id}`}>
               <NewsCard {...vest} />
             </Link>
-          </Col>
+          </div>
         ))}
-      </Row>
+      </Container>
     </div>
   );
 };

@@ -18,10 +18,19 @@ const NavbarNovinar = () => {
 
   return (
     <div>
-      <Navbar fixed="top" expand="lg" variant="dark" className="bg-dark shadow">
+      <Navbar
+        fixed="top"
+        expand="lg"
+        variant="light"
+        className="bg-secondary shadow"
+      >
         <Container fluid>
-          <Navbar.Brand as={Link} to={`/Novinar/${userData.userId}`}>
-            News
+          <Navbar.Brand
+            style={{ color: "yellow" }}
+            as={Link}
+            to={`/Novinar/${userData.userId}`}
+          >
+            Vesti
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -38,22 +47,23 @@ const NavbarNovinar = () => {
                   id="dropdown-basic-button"
                   title={userData.username}
                   drop="start"
+                  variant="warning"
                 >
                   <Dropdown.Item
                     as={Link}
                     to={`/Novinar/${userData.userId}/CreateNews`}
                   >
-                    Add news
+                    Dodajte vesti
                   </Dropdown.Item>
                   <Dropdown.Item as={Link} to={`/Novinar/${userData.userId}`}>
-                    Home
+                    Pocetna stranica
                   </Dropdown.Item>
                   <Dropdown.Divider />
-                  <Dropdown.Item onClick={handleLogout}>Log out</Dropdown.Item>
+                  <Dropdown.Item onClick={handleLogout}>Odjava</Dropdown.Item>
                 </DropdownButton>
               ) : (
                 <Nav.Link as={Link} to="/Login">
-                  Log in
+                  Prijava
                 </Nav.Link>
               )}
             </Form>

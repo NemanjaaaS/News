@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 import { useState } from "react";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import PropTypes from "prop-types";
@@ -51,16 +51,21 @@ const ReadNewsCard = (props) => {
   };
 
   return (
-    <div>
-      <Card className="mx-auto mt-5" style={{ width: "1200px" }}>
+    <Container>
+      <Card className="mx-auto mt-5">
         <Row className="shadow rounded p-2">
-          <Col className="d-flex justify-content-start ">{props.tag}</Col>
-          <Col className="d-flex justify-content-end ">{props.rubrika}</Col>
+          <Col className="d-flex justify-content-start ">#{props.tag}</Col>
+          <Col>
+            <Card.Title className="text-center">
+              <h3>{props.naslov}</h3>
+            </Card.Title>
+          </Col>
+          <Col className="d-flex justify-content-end ">
+            Rubrika: {props.rubrika}
+          </Col>
         </Row>
 
         <Card.Body className="mt-2">
-          <Card.Title className="text-center">{props.naslov}</Card.Title>
-
           <Card.Text
             dangerouslySetInnerHTML={{ __html: props.text }}
           ></Card.Text>
@@ -80,11 +85,11 @@ const ReadNewsCard = (props) => {
           </Button>
         </Card.Body>
         <Row>
-          <Col>Author: {props.novinar}</Col>
+          <Col>Autor: {props.novinar}</Col>
           <Col>{props.date}</Col>
         </Row>
       </Card>
-    </div>
+    </Container>
   );
 };
 

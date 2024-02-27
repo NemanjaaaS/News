@@ -1,5 +1,6 @@
 import EditButtons from "../components/EditButtons";
-import NavbarNovinar from "../components/navbars/NavBarNovinar";
+import NavbarNovinar from "../components/navbars/NavbarNovinar";
+import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import NovinarReadNewsCard from "../components/NovinarReadNewsCard";
@@ -31,11 +32,15 @@ const NewsNovinar = () => {
       <NavbarNovinar />
 
       {news ? (
-        <>
+        <Container
+          fluid="lg"
+          className="rounded p-3 mt-5 mb-2 bg-dark shadow "
+          style={{ width: "70rem" }}
+        >
           <NovinarReadNewsCard {...news} />
           <EditButtons {...news} />
           <NovinarPreviousComments komentari={news.komentari} />
-        </>
+        </Container>
       ) : (
         <p>Loading...</p>
       )}

@@ -7,10 +7,15 @@ import { Link } from "react-router-dom";
 
 const NavbarHome = () => {
   return (
-    <Navbar fixed="top" expand="lg" variant="dark" className="bg-dark shadow">
+    <Navbar
+      fixed="top"
+      expand="lg"
+      variant="light"
+      className="bg-secondary shadow"
+    >
       <Container fluid>
-        <Navbar.Brand as={Link} to={"/"}>
-          News
+        <Navbar.Brand style={{ color: "yellow" }} as={Link} to={"/"}>
+          Vesti
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="navbarScroll" />
@@ -21,12 +26,12 @@ const NavbarHome = () => {
             navbarScroll
           ></Nav>
           <Link to={`/Archive`} className="ms-auto d-flex me-3">
-            <Button variant="outline-success">Archive</Button>
+            <Button variant="warning">Arhiva</Button>
           </Link>
 
           <Form className="d-flex">
-            <Link to={`/Login`} className="btn btn-outline-success">
-              Log in
+            <Link to={`/Login`} className="btn btn-warning">
+              Prijava
             </Link>
           </Form>
         </Navbar.Collapse>

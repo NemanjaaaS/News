@@ -62,33 +62,33 @@ const Login = () => {
         <Row>
           <Col md={{ span: 12, offset: 5 }}>
             <Button as={Link} to={"/"} variant="outline-danger">
-              X
+              Izadji
             </Button>
           </Col>
         </Row>
 
-        <h2 className="loginTitle">Log In</h2>
+        <h2 className="loginTitle">Prijavite se</h2>
         {error && <div className="error">{error}</div>}
         <Form onSubmit={handleLogin}>
           <Form.Group className="mb-5" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
+            <Form.Label>Email adresa</Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter email"
+              placeholder="Unesite email"
               name="username"
             />
           </Form.Group>
 
           <Form.Group className="mb-5" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label>Sifra</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="Unesite sifru"
               name="password"
             />
           </Form.Group>
           <Button variant="primary" type="submit">
-            Log in
+            Prijava
           </Button>
         </Form>
       </Container>
